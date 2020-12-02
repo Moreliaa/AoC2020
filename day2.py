@@ -21,8 +21,8 @@ numberOfValidPws_pt2 = 0
 for entry in data:
     min = entry[0]
     max = entry[1]
-    pw = entry[3]
     targetChar = entry[2]
+    pw = entry[3]
     count = 0
 
     for char in pw:
@@ -34,10 +34,7 @@ for entry in data:
     if count >= min and count <= max:
         numberOfValidPws_pt1 += 1
 
-    isMinTarget = pw[min - 1] == targetChar
-    isMaxTarget = pw[max - 1] == targetChar
-
-    if (isMinTarget or isMaxTarget) and (isMinTarget != isMaxTarget):
+    if (pw[min - 1] == targetChar) != (pw[max - 1] == targetChar):
         numberOfValidPws_pt2 += 1
 
 print("Part 1: " + str(numberOfValidPws_pt1))

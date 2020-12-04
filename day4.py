@@ -4,7 +4,6 @@ with open("input/day4", "r") as input:
     data = input.read().split("\n")
 
 reqKeys = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
-optKeys = ['cid'] # why is this even here?
 
 def isInBounds(val, min, max):
     return min <= int(val) <= max

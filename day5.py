@@ -11,9 +11,10 @@ def parse(inputStr, idx, min, max):
     char = inputStr[idx]
     avg = (max + min) / 2
     if char == 'F' or char == 'L':
-        return parse(inputStr, idx + 1, min, math.floor(avg))
-    # char == 'B' or char == 'R'
-    return parse(inputStr, idx + 1, math.ceil(avg), max)
+        max = math.floor(avg)
+    else: # char == 'B' or char == 'R'
+        min = math.ceil(avg)
+    return parse(inputStr, idx + 1, min, max)
 
 def getSeatID(entry):
     row = parse(entry[:7], 0, 0, 127)

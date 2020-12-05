@@ -24,14 +24,11 @@ def getSeatID(entry):
     return row * 8 + col
 
 def getMissingSeatID(seatIDs):
-    idx = 0
-    while idx + 1 < len(seatIDs):
-        if seatIDs[idx + 1] - seatIDs[idx] == 2:
-            return seatIDs[idx] + 1
-        idx += 1
+    return [seatIDs[idx] + 1 for idx in range(len(seatIDs) - 1) if seatIDs[idx + 1] - seatIDs[idx] == 2][0]
 
 seatIDs = [getSeatID(entry) for entry in data]
 seatIDs.sort()
+
 print("Part 1: " + str(seatIDs[-1]))
 print("Part 2: " + str(getMissingSeatID(seatIDs)))
     

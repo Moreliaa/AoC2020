@@ -6,17 +6,14 @@ with open("input/day5", "r") as input:
 
 def parse(inputStr, idx, min, max):
     if idx == len(inputStr):
-        if min == max:
-            return min
-        else:
-            raise Exception('oh no')
+        return min
 
     char = inputStr[idx]
     avg = (max + min) / 2
     if char == 'F' or char == 'L':
         return parse(inputStr, idx + 1, min, math.floor(avg))
-    elif char == 'B' or char == 'R':
-        return parse(inputStr, idx + 1, math.ceil(avg), max)
+    # char == 'B' or char == 'R'
+    return parse(inputStr, idx + 1, math.ceil(avg), max)
 
 def getSeatID(entry):
     row = parse(entry[:7], 0, 0, 127)

@@ -26,12 +26,10 @@ while idxStart < len(data):
     elif acc < invalid:
         acc += data[idxEnd]
         idxEnd += 1
-    elif acc > invalid:
-        acc -= data[idxStart]
-        idxStart += 1
+    else:
         while acc > invalid and idxEnd > idxStart:
-            idxEnd -= 1
-            acc -= data[idxEnd]
+            acc -= data[idxStart]
+            idxStart += 1
 
 pt2_sorted = data[idxStart:idxEnd]
 pt2_sorted.sort()

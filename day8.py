@@ -26,7 +26,7 @@ def part1():
 
 def part2():
     idxNextChange = 0
-    while True:
+    while idxNextChange < len(data):
         acc = 0
         idx = 0
         idxInstructionsPassed = 0

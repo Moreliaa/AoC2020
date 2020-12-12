@@ -72,7 +72,6 @@ def part2():
     pos = (0, 0, 10, -1) # x, y, x_wp, y_wp
     for entry in data:
         pos = move_pt2(entry[:1], int(entry[1:]), pos[0], pos[1], pos[2], pos[3])
-        print(pos)
     return abs(pos[0]) + abs(pos[1])
 
 print("Part 1: " + str(part1()))

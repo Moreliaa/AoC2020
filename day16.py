@@ -39,6 +39,7 @@ def removePossibleKey(possibleKeys, idx, keyToRemove):
     possibleKeys[idx].remove(keyToRemove)
     if len(possibleKeys[idx]) != 1:
         return
+        
     keyToRemove = list(possibleKeys[idx])[0]
     for idx2 in range(len(possibleKeys)):
         if idx2 == idx or keyToRemove not in possibleKeys[idx2]:
@@ -46,10 +47,8 @@ def removePossibleKey(possibleKeys, idx, keyToRemove):
         removePossibleKey(possibleKeys, idx2, keyToRemove)
 
 def part2():
-    possibleKeys = []
     numFields = len(ownTicket)
-    for _ in range(numFields):
-        possibleKeys.append(set(fields.keys()))
+    possibleKeys = [set(fields.keys()) for _ in range(numFields)]
 
     for t in validTickets:
         for idx in range(numFields):

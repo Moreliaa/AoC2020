@@ -35,15 +35,15 @@ def part1():
             validTickets.append(t)
     return invalid
 
-def clearUniqueKeys(possibleKeys, idx):
+def removePossibleKey(possibleKeys, idx, keyToRemove):
+    possibleKeys[idx].remove(keyToRemove)
     if len(possibleKeys[idx]) != 1:
         return
     keyToRemove = list(possibleKeys[idx])[0]
     for idx2 in range(len(possibleKeys)):
         if idx2 == idx or keyToRemove not in possibleKeys[idx2]:
             continue
-        possibleKeys[idx2].remove(keyToRemove)
-        clearUniqueKeys(possibleKeys, idx2)
+        removePossibleKey(possibleKeys, idx2, keyToRemove)
 
 def part2():
     possibleKeys = []
@@ -59,8 +59,7 @@ def part2():
                 if not constraints[0] <= t[idx] <= constraints[1] and not constraints[2] <= t[idx] <= constraints[3]:
                     keysToRemove.append(key)
             for key in keysToRemove:
-                possibleKeys[idx].remove(key)
-                clearUniqueKeys(possibleKeys, idx)
+                removePossibleKey(possibleKeys, idx, key)
     
     possibleKeys = [list(keys)[0] for keys in possibleKeys]
     result = 1

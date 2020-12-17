@@ -15,13 +15,13 @@ def parseInput(dimensions):
 
 def parts(dimensions):
     field = parseInput(dimensions)
-    permutations = set(product(range(-1, 2), repeat=dimensions))
-    permutations.remove(tuple([0 for i in range(dimensions)]))
+    prod = set(product(range(-1, 2), repeat=dimensions))
+    prod.remove(tuple([0 for i in range(dimensions)]))
 
     for _ in range(6):
         numOfActiveNeighbours = {}
         for pos in field:
-            for p in permutations:
+            for p in prod:
                 affectedPos = tuple([pos[i] + p[i] for i in range(dimensions)])
                 if affectedPos not in numOfActiveNeighbours:
                     numOfActiveNeighbours[affectedPos] = 1

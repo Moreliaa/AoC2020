@@ -47,7 +47,7 @@ for i in range(len(cups)):
 print("Part 1: " + result)
 
 cups = [deque([int(c)]) for c in input]
-for i in range(10, 1000000):
+for i in range(10, 1000001):
     cups.append(deque([i]))
 cups_dict = {}
 for i in range(len(cups)):
@@ -62,4 +62,4 @@ for _ in range(10000000):
 
 values = cups_dict[1][1]
 
-print(values[0] * values[1][0])
+print("Part 2: " + str(values[0] * values[1][0]))

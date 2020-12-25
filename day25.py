@@ -1,15 +1,15 @@
+with open("input/day25", "r") as input:
+    data = input.read().split("\n")
+    data.pop()
+data = [int(entry) for entry in data]
+
 def transform(sub, lSize):
     val = 1
     for _ in range(lSize):
         val = (val * sub) % 20201227
     return val
 
-with open("input/day25", "r") as input:
-    data = input.read().split("\n")
-    data.pop()
-data = [int(entry) for entry in data]
 p1, p2 = data[0], data[1]
-
 size = 1
 val = 1
 s1, s2 = 0, 0
